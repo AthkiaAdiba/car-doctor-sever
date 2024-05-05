@@ -32,7 +32,7 @@ const client = new MongoClient(uri, {
 
 // own middleware
 const logger = async(req, res, next) => {
-    console.log('called', req.host, req. originalUrl)
+    console.log('called', req.host, req.originalUrl)
     next()
 }
 
@@ -110,7 +110,7 @@ async function run() {
             if(req.query.email !== req.user.email){
                 return res.status(403).send({message: 'forbidden access'})
             }
-            
+
             let query = {}
             if (req.query?.email) {
                 query = {email: req.query?.email}
